@@ -56,6 +56,10 @@
               <div><span id="driveLap">01</span><small>LAP</small></div>
               <div><span id="driveTime">00:00.000</span><small>TIME</small></div>
             </div>
+            <div class="drive-view-switch" aria-label="Driving camera">
+              <button class="active" data-drive-view="driver">DRIVER</button>
+              <button data-drive-view="map">MAP</button>
+            </div>
             <button id="exitDriveBtn" class="exit-drive-btn">EXIT DRIVE</button>
             <div class="drive-help">W / ↑ ACCELERATE · S / ↓ BRAKE · A D / ← → STEER · R RESTART</div>
             <div class="touch-drive-controls">
@@ -111,6 +115,7 @@
           <label class="switch-row"><span><b>CORNER NUMBERS</b><small>Show numbered turn markers</small></span><input id="numberToggle" type="checkbox" checked /><i></i></label>
           <label class="switch-row"><span><b>AUTO-CONNECT</b><small>Join the finish back to the start</small></span><input id="autoConnectToggle" type="checkbox" checked /><i></i></label>
           <label class="switch-row"><span><b>RACING LINE</b><small>Display sector path</small></span><input id="lineToggle" type="checkbox" checked /><i></i></label>
+          <label class="switch-row"><span><b>CURB DETAILS</b><small>Add corner edge markings</small></span><input id="curbToggle" type="checkbox" checked /><i></i></label>
         </section>
         <section class="panel">
           <div class="panel-heading"><span>SECTOR DIVISIONS</span><button id="resetSectorsBtn" class="text-btn">EVEN SPLIT</button></div>
@@ -133,6 +138,6 @@
       </aside>
     </main>
   </div>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>

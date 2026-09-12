@@ -26,8 +26,8 @@ The road, racing line, markers, sectors, and corner labels remain editable throu
 | Racing line | Exact center-path rendering, three editable sectors, selectable palettes, and adjustable line width |
 | Circuit profile | Editable name, circuit code, country code, location, and driving direction |
 | Race features | Place, rename, reposition, convert, or remove DRS zones and speed traps |
-| Drive simulation | Accelerate, brake, steer across the track surface, complete timed laps, and restart instantly |
-| Presentation | Corner numbering, adjustable road and edge widths, grid control, and watermarked PNG export |
+| Drive simulation | Driver-cockpit and circuit-map cameras, acceleration, braking, lane steering, timed laps, and touch controls |
+| Presentation | Corner numbering, optional curb detail, adjustable road and edge widths, grid control, and watermarked PNG export |
 | Workflow | Undo/redo history, responsive layout, local autosave, and automatic GitHub Pages deployment |
 
 ## Quick start
@@ -73,7 +73,7 @@ Open [http://127.0.0.1:4189](http://127.0.0.1:4189) in a modern browser.
 | `R` | Restart the current simulation |
 | `Escape` | Exit Drive mode |
 
-Touch controls appear automatically on mobile and other coarse-pointer devices. The drive HUD reports current speed, lap number, and live lap time.
+Touch controls appear automatically on mobile and other coarse-pointer devices. The drive HUD reports current speed, lap number, and live lap time. Use the **Driver / Map** switch to move between the perspective cockpit camera and the circuit overview without interrupting the lap.
 
 ## Rendering architecture
 
