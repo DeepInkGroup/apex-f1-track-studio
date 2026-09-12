@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <div class="app-shell">
@@ -76,6 +76,16 @@
           <div class="panel-heading"><span>TRACK STYLE</span><button id="resetBtn" class="text-btn">RESET</button></div>
           <label class="control-label" for="trackWidth">TRACK WIDTH <output id="widthValue">22</output></label>
           <input id="trackWidth" type="range" min="16" max="32" value="22" />
+          <div class="style-row">
+            <div>
+              <label class="control-label" for="edgeWidth">EDGE WEIGHT <output id="edgeWidthValue">10</output></label>
+              <input id="edgeWidth" type="range" min="6" max="16" value="10" />
+            </div>
+            <div>
+              <label class="control-label" for="racingWidth">LINE WIDTH <output id="racingWidthValue">4</output></label>
+              <input id="racingWidth" type="range" min="2" max="6" value="4" />
+            </div>
+          </div>
           <label class="control-label">SECTOR COLORS</label>
           <div class="swatches">
             <button class="swatch active" data-palette="classic" title="Classic"><i></i><i></i><i></i></button>
@@ -106,6 +116,6 @@
       </aside>
     </main>
   </div>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
