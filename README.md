@@ -26,7 +26,8 @@ The road, racing line, markers, sectors, and corner labels remain editable throu
 | Racing line | Exact center-path rendering, three editable sectors, selectable palettes, and adjustable line width |
 | Circuit profile | Editable name, circuit code, country code, location, and driving direction |
 | Race features | Place, rename, reposition, convert, or remove DRS zones and speed traps |
-| Presentation | Corner numbering, adjustable road and edge widths, grid control, and PNG export |
+| Drive simulation | Accelerate, brake, steer across the track surface, complete timed laps, and restart instantly |
+| Presentation | Corner numbering, adjustable road and edge widths, grid control, and watermarked PNG export |
 | Workflow | Undo/redo history, responsive layout, local autosave, and automatic GitHub Pages deployment |
 
 ## Quick start
@@ -49,7 +50,8 @@ Open [http://127.0.0.1:4189](http://127.0.0.1:4189) in a modern browser.
 4. Use **Sectors** or the sector sliders to position the second and third sector boundaries.
 5. Select **DRS** or **Trap** to add race markers. Select an existing marker to edit or drag it.
 6. Customize the circuit profile and track appearance in the inspector.
-7. Select **Export PNG** to save the current circuit map.
+7. Select **Drive This Circuit** to simulate laps on any completed circuit.
+8. Select **Export PNG** to save the circuit map with its APEX watermark.
 
 ### Useful controls
 
@@ -60,6 +62,18 @@ Open [http://127.0.0.1:4189](http://127.0.0.1:4189) in a modern browser.
 | `Delete` / `Backspace` | Remove the hovered corner or selected marker |
 | `Escape` | Return to Edit mode |
 | Double-click | Finish the current track |
+
+### Drive controls
+
+| Control | Action |
+| --- | --- |
+| `W` / `↑` | Accelerate |
+| `S` / `↓` | Brake |
+| `A` `D` / `←` `→` | Move across the track surface |
+| `R` | Restart the current simulation |
+| `Escape` | Exit Drive mode |
+
+Touch controls appear automatically on mobile and other coarse-pointer devices. The drive HUD reports current speed, lap number, and live lap time.
 
 ## Rendering architecture
 

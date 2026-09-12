@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <div class="app-shell">
@@ -35,6 +35,7 @@
         <button class="tool" data-mode="sector" title="Move sector divisions"><span class="tool-icon sector-icon">S</span><span>SECTORS</span></button>
         <button class="tool" data-mode="drs" title="Place a DRS detection zone"><span class="tool-icon drs-icon">D</span><span>DRS</span></button>
         <button class="tool" data-mode="trap" title="Place a speed trap"><span class="tool-icon">⌁</span><span>TRAP</span></button>
+        <button id="driveTool" class="tool drive-tool" title="Drive this circuit"><span class="tool-icon">▸</span><span>DRIVE</span></button>
         <div class="rail-spacer"></div>
         <button id="undoBtn" class="tool compact" title="Undo (Ctrl+Z)"><span class="tool-icon">↶</span></button>
         <button id="redoBtn" class="tool compact" title="Redo (Ctrl+Shift+Z)"><span class="tool-icon">↷</span></button>
@@ -49,6 +50,21 @@
           <canvas id="trackCanvas" aria-label="Interactive F1 circuit editor"></canvas>
           <div class="canvas-brand">APEX CIRCUIT DESIGN / 01</div>
           <div id="drawHint" class="draw-hint hidden"><span class="pulse-dot"></span>CLICK TO ADD POINTS · DOUBLE-CLICK TO FINISH</div>
+          <div id="driveHud" class="drive-hud hidden">
+            <div class="drive-stats">
+              <div><span id="driveSpeed">000</span><small>KM/H</small></div>
+              <div><span id="driveLap">01</span><small>LAP</small></div>
+              <div><span id="driveTime">00:00.000</span><small>TIME</small></div>
+            </div>
+            <button id="exitDriveBtn" class="exit-drive-btn">EXIT DRIVE</button>
+            <div class="drive-help">W / ↑ ACCELERATE · S / ↓ BRAKE · A D / ← → STEER · R RESTART</div>
+            <div class="touch-drive-controls">
+              <button data-drive-key="ArrowLeft">←</button>
+              <button data-drive-key="ArrowUp" class="throttle">ACCEL</button>
+              <button data-drive-key="ArrowDown" class="brake">BRAKE</button>
+              <button data-drive-key="ArrowRight">→</button>
+            </div>
+          </div>
           <div id="toast" class="toast" role="status"></div>
         </div>
         <div class="stage-footer">
@@ -112,10 +128,11 @@
           <input id="markerPosition" type="range" min="0" max="100" value="0" />
           <button id="deleteMarkerBtn" class="danger-btn">REMOVE MARKER</button>
         </section>
+        <button id="startDriveBtn" class="drive-start-btn"><span>▸</span><b>DRIVE THIS CIRCUIT</b><small>Keyboard and touch controls</small></button>
         <button id="newBtn" class="new-track-btn"><span>＋</span> NEW BLANK TRACK</button>
       </aside>
     </main>
   </div>
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
