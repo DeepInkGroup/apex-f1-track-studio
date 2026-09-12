@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="icon" href="data:," />
+  <title>Apex — F1 Track Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Apex home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>APEX</span><span class="brand-product">TRACK STUDIO</span>
+      </a>
+      <div class="track-title-wrap">
+        <span class="eyebrow">CURRENT PROJECT</span>
+        <input id="trackName" class="track-title" value="ORBITAL GRAND PRIX" aria-label="Track name" />
+      </div>
+      <div class="header-actions">
+        <span id="saveState" class="save-state"><span class="status-dot"></span> SAVED</span>
+        <button id="exportBtn" class="primary-btn" type="button"><span aria-hidden="true">↗</span> EXPORT PNG</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="tool-rail" aria-label="Track tools">
+        <button class="tool active" data-mode="edit" title="Select and move points"><span class="tool-icon">↖</span><span>EDIT</span></button>
+        <button class="tool" data-mode="draw" title="Draw a new circuit"><span class="tool-icon">✎</span><span>DRAW</span></button>
+        <button class="tool" data-mode="drs" title="Place a DRS detection zone"><span class="tool-icon drs-icon">D</span><span>DRS</span></button>
+        <button class="tool" data-mode="trap" title="Place a speed trap"><span class="tool-icon">⌁</span><span>TRAP</span></button>
+        <div class="rail-spacer"></div>
+        <button id="undoBtn" class="tool compact" title="Undo (Ctrl+Z)"><span class="tool-icon">↶</span></button>
+        <button id="redoBtn" class="tool compact" title="Redo (Ctrl+Shift+Z)"><span class="tool-icon">↷</span></button>
+      </aside>
+
+      <section class="stage-wrap">
+        <div class="stage-topline">
+          <div class="breadcrumb"><span>DESIGN</span><b>/</b><strong>TRACK LAYOUT</strong></div>
+          <div class="view-actions"><button id="fitBtn" class="icon-btn" title="Fit track to view">⌗</button><button id="gridBtn" class="icon-btn active" title="Toggle grid">▦</button></div>
+        </div>
+        <div id="canvasFrame" class="canvas-frame">
+          <canvas id="trackCanvas" aria-label="Interactive F1 circuit editor"></canvas>
+          <div class="canvas-brand">APEX CIRCUIT DESIGN / 01</div>
+          <div id="drawHint" class="draw-hint hidden"><span class="pulse-dot"></span>CLICK TO ADD POINTS · DOUBLE-CLICK TO FINISH</div>
+          <div id="toast" class="toast" role="status"></div>
+        </div>
+        <div class="stage-footer">
+          <div class="legend">
+            <span><i class="line yellow"></i> SECTOR 1</span><span><i class="line red"></i> SECTOR 2</span><span><i class="line blue"></i> SECTOR 3</span><span><i class="dot green"></i> DRS</span><span><i class="dot pink"></i> SPEED TRAP</span>
+          </div>
+          <span class="shortcut">PRESS <kbd>DELETE</kbd> TO REMOVE A POINT</span>
+        </div>
+      </section>
+
+      <aside class="inspector">
+        <section class="panel hero-panel">
+          <div class="panel-label">CIRCUIT PROFILE</div>
+          <div class="track-code"><span id="profileCodeDisplay">ORB</span><small id="profileCountryDisplay">IRN</small></div>
+          <div class="metric-grid"><div><span id="lengthValue">5.42</span><small>KM</small><label>LENGTH</label></div><div><span id="turnValue">18</span><small></small><label>CORNERS</label></div></div>
+          <div class="profile-form">
+            <label class="profile-field full"><span>CIRCUIT NAME</span><input id="profileName" maxlength="32" value="ORBITAL GRAND PRIX" /></label>
+            <label class="profile-field"><span>CIRCUIT CODE</span><input id="profileCode" maxlength="3" value="ORB" /></label>
+            <label class="profile-field"><span>COUNTRY CODE</span><input id="profileCountry" maxlength="3" value="IRN" /></label>
+            <label class="profile-field full"><span>LOCATION</span><input id="profileLocation" maxlength="28" value="TEHRAN, IRAN" /></label>
+            <label class="profile-field full"><span>DIRECTION</span><select id="profileDirection"><option value="clockwise">CLOCKWISE</option><option value="counterclockwise">COUNTERCLOCKWISE</option></select></label>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel-heading"><span>TRACK STYLE</span><button id="resetBtn" class="text-btn">RESET</button></div>
+          <label class="control-label" for="trackWidth">TRACK WIDTH <output id="widthValue">22</output></label>
+          <input id="trackWidth" type="range" min="16" max="32" value="22" />
+          <label class="control-label">SECTOR COLORS</label>
+          <div class="swatches">
+            <button class="swatch active" data-palette="classic" title="Classic"><i></i><i></i><i></i></button>
+            <button class="swatch" data-palette="sunset" title="Sunset"><i></i><i></i><i></i></button>
+            <button class="swatch" data-palette="mono" title="Monochrome"><i></i><i></i><i></i></button>
+          </div>
+          <label class="switch-row"><span><b>CORNER NUMBERS</b><small>Show numbered turn markers</small></span><input id="numberToggle" type="checkbox" checked /><i></i></label>
+          <label class="switch-row"><span><b>AUTO-CONNECT</b><small>Join the finish back to the start</small></span><input id="autoConnectToggle" type="checkbox" checked /><i></i></label>
+          <label class="switch-row"><span><b>RACING LINE</b><small>Display sector path</small></span><input id="lineToggle" type="checkbox" checked /><i></i></label>
+        </section>
+        <button id="newBtn" class="new-track-btn"><span>＋</span> NEW BLANK TRACK</button>
+      </aside>
+    </main>
+  </div>
+  <script src="app.js?v=3"></script>
+</body>
+</html>
