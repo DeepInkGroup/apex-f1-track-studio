@@ -6,10 +6,10 @@ An interactive, browser-based Formula 1 circuit designer inspired by modern race
 
 - Smooth point-based circuit drawing and editing
 - Optional automatic start/finish connection
-- Automatic three-sector racing line with contained sector boundaries
+- Editable three-sector racing line with contained, collision-free boundaries
 - Toggleable corner numbers
 - Editable circuit name, three-letter code, country, location, and direction
-- DRS and speed-trap placement
+- Selectable DRS and speed-trap markers with drag positioning, labels, type conversion, and removal
 - Track-width and sector-palette controls
 - Undo, redo, local autosave, and PNG export
 - Responsive interface with no build step or runtime dependencies

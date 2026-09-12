@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <div class="app-shell">
@@ -32,6 +32,7 @@
       <aside class="tool-rail" aria-label="Track tools">
         <button class="tool active" data-mode="edit" title="Select and move points"><span class="tool-icon">↖</span><span>EDIT</span></button>
         <button class="tool" data-mode="draw" title="Draw a new circuit"><span class="tool-icon">✎</span><span>DRAW</span></button>
+        <button class="tool" data-mode="sector" title="Move sector divisions"><span class="tool-icon sector-icon">S</span><span>SECTORS</span></button>
         <button class="tool" data-mode="drs" title="Place a DRS detection zone"><span class="tool-icon drs-icon">D</span><span>DRS</span></button>
         <button class="tool" data-mode="trap" title="Place a speed trap"><span class="tool-icon">⌁</span><span>TRAP</span></button>
         <div class="rail-spacer"></div>
@@ -85,10 +86,26 @@
           <label class="switch-row"><span><b>AUTO-CONNECT</b><small>Join the finish back to the start</small></span><input id="autoConnectToggle" type="checkbox" checked /><i></i></label>
           <label class="switch-row"><span><b>RACING LINE</b><small>Display sector path</small></span><input id="lineToggle" type="checkbox" checked /><i></i></label>
         </section>
+        <section class="panel">
+          <div class="panel-heading"><span>SECTOR DIVISIONS</span><button id="resetSectorsBtn" class="text-btn">EVEN SPLIT</button></div>
+          <label class="control-label" for="sector2Range">SECTOR 2 START <output id="sector2Value">33%</output></label>
+          <input id="sector2Range" type="range" min="8" max="84" value="33" />
+          <label class="control-label" for="sector3Range">SECTOR 3 START <output id="sector3Value">67%</output></label>
+          <input id="sector3Range" type="range" min="16" max="92" value="67" />
+          <p class="panel-help">Use the sliders or choose SECTORS and click the circuit to move the nearest division.</p>
+        </section>
+        <section id="markerEditor" class="panel marker-editor hidden">
+          <div class="panel-heading"><span>SELECTED MARKER</span><button id="closeMarkerBtn" class="text-btn">CLOSE</button></div>
+          <label class="profile-field full"><span>TYPE</span><select id="markerType"><option value="drs">DRS ZONE</option><option value="trap">SPEED TRAP</option></select></label>
+          <label class="profile-field full"><span>LABEL</span><textarea id="markerLabel" maxlength="24" rows="2"></textarea></label>
+          <label class="control-label" for="markerPosition">POSITION <output id="markerPositionValue">0%</output></label>
+          <input id="markerPosition" type="range" min="0" max="100" value="0" />
+          <button id="deleteMarkerBtn" class="danger-btn">REMOVE MARKER</button>
+        </section>
         <button id="newBtn" class="new-track-btn"><span>＋</span> NEW BLANK TRACK</button>
       </aside>
     </main>
   </div>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
