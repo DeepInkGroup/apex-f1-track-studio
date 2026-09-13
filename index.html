@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9" />
-  <style>.drive-start-btn{box-shadow:0 8px 22px #0004}.drive-hud:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,#02040748 100%)}.drive-stats,.drive-view-switch,.exit-drive-btn{backdrop-filter:blur(7px)}.drive-stats{border-color:#65717b!important}.drive-view-switch button.active{box-shadow:0 0 16px #d8ff3866}</style>
+  <link rel="stylesheet" href="styles.css?v=10" />
+  <style>.drive-start-btn{box-shadow:0 8px 22px #0004}.drive-hud:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,#02040748 100%)}.drive-stats,.drive-view-switch,.exit-drive-btn{backdrop-filter:blur(7px)}.drive-stats{border-color:#65717b!important}.drive-view-switch button.active{box-shadow:0 0 16px #d8ff3866}.panel-status{color:#79838d;font:600 7px "DM Mono",monospace;letter-spacing:.08em}.corner-editor .panel-help{margin-bottom:11px}</style>
 </head>
 <body>
   <div class="app-shell">
@@ -118,6 +118,11 @@
           <label class="switch-row"><span><b>RACING LINE</b><small>Display sector path</small></span><input id="lineToggle" type="checkbox" checked /><i></i></label>
           <label class="switch-row"><span><b>CURB DETAILS</b><small>Add corner edge markings</small></span><input id="curbToggle" type="checkbox" checked /><i></i></label>
         </section>
+        <section class="panel corner-editor">
+          <div class="panel-heading"><span>CORNER EDIT</span><span id="cornerSelection" class="panel-status">SELECT A CORNER</span></div>
+          <p class="panel-help">Choose EDIT, click a corner control point, then remove it. You can also hover a point and press Delete.</p>
+          <button id="deleteCornerBtn" class="danger-btn" disabled>REMOVE SELECTED CORNER</button>
+        </section>
         <section class="panel">
           <div class="panel-heading"><span>SECTOR DIVISIONS</span><button id="resetSectorsBtn" class="text-btn">EVEN SPLIT</button></div>
           <label class="control-label" for="sector2Range">SECTOR 2 START <output id="sector2Value">33%</output></label>
@@ -139,6 +144,6 @@
       </aside>
     </main>
   </div>
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
